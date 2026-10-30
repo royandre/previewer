@@ -192,21 +192,25 @@ svg.i {
   font-size: 12px;
 }
 
-.settings .keys {
-  margin: 4px 10px 6px;
-  padding-top: 10px;
-  border-top: 1px solid var(--bar-line);
-  color: var(--bar-muted);
+/* Shortcut line under the phone, on the dark backdrop */
+.shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 16px;
+  max-width: 100%;
+  color: var(--caption);
   font-size: 12px;
-  line-height: 1.7;
 }
+
+.shortcuts span { white-space: nowrap; }
 
 kbd {
   font: 500 11px/1 var(--mono);
   padding: 2px 5px;
   border-radius: 4px;
-  background: var(--seg-bg);
-  color: var(--bar-fg);
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
 }
 
 .switch {

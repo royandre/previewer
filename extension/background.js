@@ -106,9 +106,15 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   return true; // async response
 });
 
-// The overlay is gone once the tab navigates or closes; drop its rule too.
-chrome.tabs.onUpdated.addListener((tabId, change) => {
-  if (change.status === 'loading' && change.url) removeRule(tabId).catch(() => {});
+// Drop the rule once the preview is gone. Without the "tabs" permission Chrome
+// doesn't say which frame or URL is loading, so ask the tab's top frame: after
+// the tab navigates away, the overlay script no longer exists to answer.
+chrome.tabs.onUpdated.addListener(async (tabId, change) => {
+  if (change.status !== 'complete') return;
+  const rules = await chrome.declarativeNetRequest.getSessionRules({ ruleIds: [ruleId(tabId)] });
+  if (rules.length === 0) return;
+  const open = await chrome.tabs.sendMessage(tabId, { type: 'isOpen' }, { frameId: 0 }).catch(() => false);
+  if (!open) await removeRule(tabId);
 });
 chrome.tabs.onRemoved.addListener((tabId) => removeRule(tabId).catch(() => {}));
 

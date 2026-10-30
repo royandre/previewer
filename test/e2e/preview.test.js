@@ -216,6 +216,31 @@ test('copies the screenshot to the clipboard with ⌘C / Ctrl+C', async () => {
   await page.close();
 });
 
+test('shortcuts also work with focus inside the framed page', async () => {
+  const { page, frame } = await openPreview('/');
+  await frame.locator('.hero').click();
+  await page.keyboard.press('ControlOrMeta+3');
+  await page.waitForTimeout(300);
+  assert.equal(await frame.evaluate(() => innerWidth), 412);
+  const [download] = await Promise.all([page.waitForEvent('download'), page.keyboard.press('ControlOrMeta+s')]);
+  assert.match(download.suggestedFilename(), /-pixel-11-/);
+  await page.keyboard.press('ControlOrMeta+1');
+  await page.close();
+});
+
+test('leaving the page removes the network rule', async () => {
+  const { page, frame } = await openPreview('/');
+  // Navigating inside the phone keeps the preview and its rule.
+  await frame.evaluate(() => (location.href = '/deny'));
+  await page.waitForTimeout(800);
+  assert.equal((await worker.evaluate(() => chrome.declarativeNetRequest.getSessionRules())).length, 1);
+  // Navigating the tab itself ends the preview.
+  await page.goto(`${base}/escaped`);
+  await page.waitForTimeout(800);
+  assert.equal((await worker.evaluate(() => chrome.declarativeNetRequest.getSessionRules())).length, 0);
+  await page.close();
+});
+
 test('closes on Escape and removes the network rule', async () => {
   const { page } = await openPreview('/');
   assert.equal((await worker.evaluate(() => chrome.declarativeNetRequest.getSessionRules())).length, 1);

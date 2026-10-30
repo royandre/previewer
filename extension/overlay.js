@@ -61,7 +61,6 @@
             ${toggle('statusBar')}
             ${toggle('frameInScreenshot')}
             ${toggle('shadowInScreenshot')}
-            <div class="keys">${shortcutHelp()}</div>
           </div>
         </div>
         <div class="stage">
@@ -78,6 +77,7 @@
               </div>
             </div>
             <div class="caption"></div>
+            <div class="shortcuts">${shortcutHelp()}</div>
           </div>
         </div>
         <div class="toast" role="status" hidden></div>
@@ -169,10 +169,11 @@
   function shortcutHelp() {
     const k = (key) => `<kbd>${keyLabel(key)}</kbd>`;
     return [
-      `${k('1')} – ${k('4')} ${t('keysDevices')}`,
-      `${k('S')} ${t('keysSave')} · ${k('C')} ${t('keysCopy')}`,
-      `<kbd>Esc</kbd> ${t('keysClose')}`,
-    ].join('<br>');
+      `<span>${k('1')}–${k('4')} ${t('keysDevices')}</span>`,
+      `<span>${k('S')} ${t('keysSave')}</span>`,
+      `<span>${k('C')} ${t('keysCopy')}</span>`,
+      `<span><kbd>Esc</kbd> ${t('keysClose')}</span>`,
+    ].join('');
   }
 
   // --- Rendering ---------------------------------------------------------------
@@ -226,7 +227,7 @@
     if (!ui) return;
     const g = geometry(ui.device);
     const stage = ui.el.stage.getBoundingClientRect();
-    const captionSpace = 34;
+    const captionSpace = 64; // device name and the shortcut line under the phone
     const scale = Math.min(1, (stage.height - 32 - captionSpace) / g.height, (stage.width - 32) / g.width);
     ui.scale = Math.max(0.1, scale);
     ui.el.phone.style.transform = `scale(${ui.scale})`;
@@ -511,6 +512,12 @@
       // The extension was reloaded or updated; nothing to tell.
     });
   }
+
+  // The service worker asks after each page load in the tab whether the preview
+  // is still open, and drops its network rule once it isn't.
+  chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+    if (message.type === 'isOpen') sendResponse(ui !== null);
+  });
 
   globalThis.__previewer = { open, close, isOpen: () => ui !== null };
 })();
