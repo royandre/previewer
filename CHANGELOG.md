@@ -5,6 +5,8 @@ All notable changes to Previewer are listed here. The format follows
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-10-30
+
 ### Added
 
 - The mouse pointer is a fingertip inside the phone, like DevTools' touch pointer, and darkens while you press.
@@ -20,5 +22,6 @@ All notable changes to Previewer are listed here. The format follows
 - Settings for status bar, frame in screenshot and shadow in screenshot.
 - English and Norwegian (bokmål) interface.
 
-[Unreleased]: https://github.com/royandre/previewer/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/royandre/previewer/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/royandre/previewer/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/royandre/previewer/releases/tag/v1.0.0

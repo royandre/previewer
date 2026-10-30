@@ -3,7 +3,7 @@
   "name": "__MSG_extName__",
   "short_name": "Previewer",
   "description": "__MSG_extDescription__",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "default_locale": "en",
   "minimum_chrome_version": "120",
   "homepage_url": "https://github.com/royandre/previewer",
@@ -24,7 +24,12 @@
     "service_worker": "background.js",
     "type": "module"
   },
-  "permissions": ["activeTab", "scripting", "storage", "declarativeNetRequestWithHostAccess"],
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "declarativeNetRequestWithHostAccess"
+  ],
   "commands": {
     "_execute_action": {
       "suggested_key": {
