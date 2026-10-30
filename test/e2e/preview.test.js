@@ -120,6 +120,7 @@ test('shows the page at the phone width with the phone user agent', async () => 
   assert.equal(await frame.evaluate(() => innerWidth), 402);
   assert.match(await frame.evaluate(() => navigator.userAgent), /Chrome/, 'JS user agent is not overridden (documented)');
   assert.match(seenUserAgents.at(-1), /iPhone/);
+  assert.match(await frame.evaluate(() => getComputedStyle(document.querySelector('.hero')).cursor), /^url\("data:image\/svg\+xml/, 'touch pointer');
   await page.waitForTimeout(300);
   await shoot(page, 'iphone-18-pro');
 
