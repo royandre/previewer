@@ -1,0 +1,30 @@
+name: Bug report
+description: Something doesn't work as it should.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead? Screenshots help.
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Page URL
+      description: The page you previewed, if it's public.
+      placeholder: https://example.com
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device in the preview
+      options: [iPhone 18 Pro, iPhone SE, Pixel 11, iPad Pro 11″, All of them]
+  - type: input
+    id: versions
+    attributes:
+      label: Previewer, browser and OS version
+      description: Previewer's version is on its card in chrome://extensions. Browser version is in chrome://version.
+      placeholder: Previewer 1.0.0, Chrome 141, macOS 26
+    validations:
+      required: true

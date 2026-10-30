@@ -1,0 +1,83 @@
+{
+  "extName": {
+    "message": "Previewer"
+  },
+  "extDescription": {
+    "message": "Se siden du står på i en iPhone-, Pixel- eller iPad-ramme med ett klikk, og lagre en gjennomsiktig PNG."
+  },
+  "actionTitle": {
+    "message": "Vis på mobil"
+  },
+  "unsupportedPage": {
+    "message": "Previewer virker ikke på denne siden. Chrome stenger utvidelser ute fra chrome://-sider og Chrome Nettmarked."
+  },
+  "device": {
+    "message": "Enhet"
+  },
+  "screenshot": {
+    "message": "Skjermbilde"
+  },
+  "save": {
+    "message": "Lagre skjermbilde"
+  },
+  "copy": {
+    "message": "Kopier skjermbilde"
+  },
+  "reload": {
+    "message": "Last siden på nytt"
+  },
+  "settings": {
+    "message": "Innstillinger"
+  },
+  "close": {
+    "message": "Lukk"
+  },
+  "statusBar": {
+    "message": "Statuslinje"
+  },
+  "statusBarHint": {
+    "message": "Klokke, dekning og batteri øverst"
+  },
+  "frameInScreenshot": {
+    "message": "Ramme i skjermbilde"
+  },
+  "frameInScreenshotHint": {
+    "message": "Av gir bare selve skjermen"
+  },
+  "shadowInScreenshot": {
+    "message": "Skygge i skjermbilde"
+  },
+  "shadowInScreenshotHint": {
+    "message": "Myk skygge rundt rammen"
+  },
+  "keysDevices": {
+    "message": "bytt enhet"
+  },
+  "keysSave": {
+    "message": "lagre"
+  },
+  "keysCopy": {
+    "message": "kopier"
+  },
+  "keysClose": {
+    "message": "lukk"
+  },
+  "saved": {
+    "message": "Lagret $FILE$ i Nedlastinger",
+    "placeholders": {
+      "FILE": {
+        "content": "$1",
+        "example": "example.com-iphone-18-pro-20261030-141500.png"
+      }
+    }
+  },
+  "copied": {
+    "message": "Skjermbildet er kopiert"
+  },
+  "captureFailed": {
+    "message": "Fikk ikke tatt skjermbildet. Prøv igjen."
+  },
+  "copyFailed": {
+    "message": "Fikk ikke kopiert skjermbildet. Bruk ⌘S / Ctrl+S for å lagre det i stedet."
+  }
+}

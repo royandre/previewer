@@ -1,0 +1,26 @@
+{
+  "name": "previewer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chrome extension: see the page you're on in a phone frame and save a transparent PNG.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "node --test test/*.test.js",
+    "test:e2e": "node --test test/e2e/*.test.js",
+    "check": "npm run lint && npm test",
+    "icons": "node scripts/icons.js",
+    "package": "node scripts/package.js",
+    "bump": "node scripts/bump.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "globals": "^16.5.0",
+    "playwright": "^1.64.1"
+  }
+}

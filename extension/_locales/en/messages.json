@@ -1,0 +1,108 @@
+{
+  "extName": {
+    "message": "Previewer",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "See the page you're on in an iPhone, Pixel or iPad frame with one click, and save a transparent PNG.",
+    "description": "Store and chrome://extensions description"
+  },
+  "actionTitle": {
+    "message": "Preview on a phone",
+    "description": "Toolbar button tooltip"
+  },
+  "unsupportedPage": {
+    "message": "Previewer can't run on this page. Chrome blocks extensions on chrome:// pages and the Chrome Web Store.",
+    "description": "Shown when the page can't be previewed"
+  },
+  "device": {
+    "message": "Device",
+    "description": "Label for the device switcher"
+  },
+  "screenshot": {
+    "message": "Screenshot",
+    "description": "Button that saves a PNG"
+  },
+  "save": {
+    "message": "Save screenshot",
+    "description": "Tooltip for the screenshot button"
+  },
+  "copy": {
+    "message": "Copy screenshot",
+    "description": "Tooltip for the copy button"
+  },
+  "reload": {
+    "message": "Reload page",
+    "description": "Tooltip for the reload button"
+  },
+  "settings": {
+    "message": "Settings",
+    "description": "Tooltip for the settings button"
+  },
+  "close": {
+    "message": "Close",
+    "description": "Tooltip for the close button"
+  },
+  "statusBar": {
+    "message": "Status bar",
+    "description": "Setting"
+  },
+  "statusBarHint": {
+    "message": "Clock, signal and battery at the top",
+    "description": "Setting hint"
+  },
+  "frameInScreenshot": {
+    "message": "Frame in screenshot",
+    "description": "Setting"
+  },
+  "frameInScreenshotHint": {
+    "message": "Off saves only the screen",
+    "description": "Setting hint"
+  },
+  "shadowInScreenshot": {
+    "message": "Shadow in screenshot",
+    "description": "Setting"
+  },
+  "shadowInScreenshotHint": {
+    "message": "Soft shadow around the frame",
+    "description": "Setting hint"
+  },
+  "keysDevices": {
+    "message": "switch device",
+    "description": "Shortcut help"
+  },
+  "keysSave": {
+    "message": "save",
+    "description": "Shortcut help"
+  },
+  "keysCopy": {
+    "message": "copy",
+    "description": "Shortcut help"
+  },
+  "keysClose": {
+    "message": "close",
+    "description": "Shortcut help"
+  },
+  "saved": {
+    "message": "Saved $FILE$ to Downloads",
+    "description": "Toast after saving",
+    "placeholders": {
+      "FILE": {
+        "content": "$1",
+        "example": "example.com-iphone-18-pro-20261030-141500.png"
+      }
+    }
+  },
+  "copied": {
+    "message": "Screenshot copied",
+    "description": "Toast after copying"
+  },
+  "captureFailed": {
+    "message": "Couldn't take the screenshot. Try again.",
+    "description": "Toast on failure"
+  },
+  "copyFailed": {
+    "message": "Couldn't copy the screenshot. Use ⌘S / Ctrl+S to save it instead.",
+    "description": "Toast on failure"
+  }
+}

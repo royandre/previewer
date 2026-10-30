@@ -1,0 +1,18 @@
+name: Feature idea
+description: Suggest an improvement.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: Describe the job, not the solution. What is hard or slow today?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would help?
+  - type: markdown
+    attributes:
+      value: Previewer stays deliberately small (a few devices, a few settings, one click), so not every good idea fits. Thanks for understanding.

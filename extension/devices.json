@@ -1,0 +1,236 @@
+{
+  "devices": [
+    {
+      "id": "iphone-18-pro",
+      "name": "iPhone 18 Pro",
+      "viewport": {
+        "width": 402,
+        "height": 874
+      },
+      "pixelRatio": 3,
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1",
+      "headers": {
+        "sec-ch-ua": null,
+        "sec-ch-ua-mobile": null,
+        "sec-ch-ua-platform": null
+      },
+      "frame": {
+        "bezel": {
+          "top": 12,
+          "right": 12,
+          "bottom": 12,
+          "left": 12
+        },
+        "bodyRadius": 67,
+        "screenRadius": 55,
+        "rim": 4.5,
+        "color": "#ecdcd3",
+        "edge": "#cdb9ae",
+        "front": "#0a0a0b",
+        "statusBar": {
+          "height": 62,
+          "layout": "island"
+        },
+        "cutout": {
+          "type": "island",
+          "width": 124,
+          "height": 36,
+          "top": 11
+        },
+        "homeIndicator": true,
+        "buttons": [
+          {
+            "side": "left",
+            "top": 128,
+            "length": 30
+          },
+          {
+            "side": "left",
+            "top": 196,
+            "length": 60
+          },
+          {
+            "side": "left",
+            "top": 270,
+            "length": 60
+          },
+          {
+            "side": "right",
+            "top": 236,
+            "length": 96
+          },
+          {
+            "side": "right",
+            "top": 470,
+            "length": 64
+          }
+        ]
+      }
+    },
+    {
+      "id": "iphone-se",
+      "name": "iPhone SE",
+      "viewport": {
+        "width": 375,
+        "height": 667
+      },
+      "pixelRatio": 2,
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1",
+      "headers": {
+        "sec-ch-ua": null,
+        "sec-ch-ua-mobile": null,
+        "sec-ch-ua-platform": null
+      },
+      "frame": {
+        "bezel": {
+          "top": 112,
+          "right": 26,
+          "bottom": 112,
+          "left": 26
+        },
+        "bodyRadius": 64,
+        "screenRadius": 0,
+        "rim": 3,
+        "color": "#e6dccf",
+        "edge": "#c4b8aa",
+        "front": "#f6f3ee",
+        "statusBar": {
+          "height": 20,
+          "layout": "classic"
+        },
+        "homeButton": {
+          "radius": 33,
+          "ring": "#d3cdc4"
+        },
+        "earpiece": {
+          "width": 52,
+          "height": 6,
+          "color": "#d9d4cc"
+        },
+        "homeIndicator": false,
+        "buttons": [
+          {
+            "side": "left",
+            "top": 120,
+            "length": 30
+          },
+          {
+            "side": "left",
+            "top": 190,
+            "length": 52
+          },
+          {
+            "side": "left",
+            "top": 256,
+            "length": 52
+          },
+          {
+            "side": "right",
+            "top": 190,
+            "length": 60
+          }
+        ]
+      }
+    },
+    {
+      "id": "pixel-11",
+      "name": "Pixel 11",
+      "viewport": {
+        "width": 412,
+        "height": 924
+      },
+      "pixelRatio": 2.625,
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36",
+      "headers": {
+        "sec-ch-ua-mobile": "?1",
+        "sec-ch-ua-platform": "\"Android\""
+      },
+      "frame": {
+        "bezel": {
+          "top": 11,
+          "right": 11,
+          "bottom": 11,
+          "left": 11
+        },
+        "bodyRadius": 54,
+        "screenRadius": 44,
+        "rim": 4,
+        "color": "#26324a",
+        "edge": "#1a2335",
+        "front": "#08090b",
+        "statusBar": {
+          "height": 40,
+          "layout": "android"
+        },
+        "cutout": {
+          "type": "hole",
+          "width": 13,
+          "height": 13,
+          "top": 14
+        },
+        "homeIndicator": true,
+        "buttons": [
+          {
+            "side": "right",
+            "top": 210,
+            "length": 66
+          },
+          {
+            "side": "right",
+            "top": 310,
+            "length": 110
+          }
+        ]
+      }
+    },
+    {
+      "id": "ipad-pro-11",
+      "name": "iPad Pro 11″",
+      "viewport": {
+        "width": 834,
+        "height": 1210
+      },
+      "pixelRatio": 2,
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15",
+      "headers": {
+        "sec-ch-ua": null,
+        "sec-ch-ua-mobile": null,
+        "sec-ch-ua-platform": null
+      },
+      "frame": {
+        "bezel": {
+          "top": 22,
+          "right": 22,
+          "bottom": 22,
+          "left": 22
+        },
+        "bodyRadius": 46,
+        "screenRadius": 26,
+        "rim": 3.5,
+        "color": "#e4e5e8",
+        "edge": "#c3c5ca",
+        "front": "#0a0a0b",
+        "statusBar": {
+          "height": 24,
+          "layout": "tablet"
+        },
+        "camera": {
+          "edge": "right"
+        },
+        "homeIndicator": true,
+        "buttons": [
+          {
+            "side": "right",
+            "top": 70,
+            "length": 54
+          },
+          {
+            "side": "right",
+            "top": 136,
+            "length": 54
+          }
+        ]
+      }
+    }
+  ]
+}

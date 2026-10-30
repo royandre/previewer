@@ -1,0 +1,36 @@
+name: Release
+
+# Push a tag like v1.2.0 (matching extension/manifest.json) to publish a release.
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - name: Build zip (fails if the tag doesn't match the manifest version)
+        run: npm run package
+      - name: Release notes from CHANGELOG.md
+        run: node scripts/release-notes.js "${GITHUB_REF_NAME#v}" > release-notes.md
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >
+          gh release create "$GITHUB_REF_NAME"
+          "dist/previewer-$GITHUB_REF_NAME.zip" dist/previewer.zip
+          --title "Previewer $GITHUB_REF_NAME"
+          --notes-file release-notes.md
+          --verify-tag

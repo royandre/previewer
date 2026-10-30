@@ -1,0 +1,30 @@
+name: Device request or correction
+description: A device's size, user agent or look is wrong, or an important screen size is missing.
+labels: [device]
+body:
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      placeholder: iPhone 18 Pro
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What should change?
+      description: For sizes, give the CSS viewport (window.innerWidth × window.innerHeight in portrait) and the device pixel ratio.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: Manufacturer spec, or measured on a real device.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does Previewer need it?
+      description: For a new device: which screen size or browser behaviour is not covered by the current devices?
