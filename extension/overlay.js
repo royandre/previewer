@@ -35,6 +35,18 @@
     tablet: `<span>9:41</span><span class="icons">${WIFI}100%${BATTERY}</span>`,
   };
 
+  // A fingertip like DevTools' touch pointer: grey with a light and a dark ring so
+  // it shows on any background, darker while pressed. Hotspot in the centre.
+  const touchCursor = (fill, r) => {
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><circle cx="12" cy="12" r="${r + 1}" fill="none" stroke="rgba(0,0,0,.28)"/><circle cx="12" cy="12" r="${r}" fill="${fill}" stroke="rgba(255,255,255,.9)" stroke-width="1.5"/></svg>`;
+    return `url("data:image/svg+xml,${encodeURIComponent(svg)}") 12 12, default`;
+  };
+  const FRAME_CSS = `
+    html { scrollbar-width: none; }
+    ::-webkit-scrollbar { display: none; }
+    *, *::before, *::after { cursor: ${touchCursor('rgba(70,74,82,.38)', 10)} !important; }
+    *:active, *:active::before, *:active::after { cursor: ${touchCursor('rgba(70,74,82,.7)', 9)} !important; }`;
+
   let ui = null; // everything that exists while the preview is open
 
   function open({ devices, settings, css }) {
@@ -265,13 +277,14 @@
     }
 
     // Phones overlay their scrollbars; hide desktop scrollbars so the page gets
-    // its full width (Windows otherwise takes ~15px of a 402px viewport).
+    // its full width (Windows otherwise takes ~15px of a 402px viewport). Show a
+    // fingertip instead of the mouse pointer, so it looks and feels like touch.
     try {
       const sheet = new doc.defaultView.CSSStyleSheet();
-      sheet.replaceSync('html { scrollbar-width: none; } ::-webkit-scrollbar { display: none; }');
+      sheet.replaceSync(FRAME_CSS);
       doc.adoptedStyleSheets = [...doc.adoptedStyleSheets, sheet];
     } catch {
-      // Not critical: the page just keeps its scrollbar.
+      // Not critical: the page keeps its scrollbar and mouse pointer.
     }
 
     doc.addEventListener('keydown', onKeydown, true);

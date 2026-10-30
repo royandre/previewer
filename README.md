@@ -95,7 +95,8 @@ controlled" banner on every page:
 
 - `navigator.userAgent` in JavaScript still reports desktop Chrome. Server-side detection works; client-side sniffing
   doesn't.
-- Touch: `(hover: hover)` and `(pointer: fine)` still match, and you scroll with a mouse or trackpad.
+- Touch: inside the phone the mouse pointer becomes a fingertip, but it is still a mouse. Hover effects still work,
+  `(hover: hover)` and `(pointer: fine)` still match, and you scroll with a mouse wheel or trackpad.
 - The rendering engine is Chrome's Blink, not Safari's WebKit. Previewer shows layout, not WebKit-specific bugs.
 
 If a link inside the phone leads to a different website that refuses to be shown in a frame, Chrome shows its own

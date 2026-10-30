@@ -5,6 +5,10 @@ All notable changes to Previewer are listed here. The format follows
 
 ## [Unreleased]
 
+### Added
+
+- The mouse pointer is a fingertip inside the phone, like DevTools' touch pointer, and darkens while you press.
+
 ## [1.0.0] - 2026-10-30
 
 ### Added
