@@ -5,6 +5,10 @@ All notable changes to Previewer are listed here. The format follows
 
 ## [Unreleased]
 
+### Changed
+
+- New icon: a phone with a gradient screen inside camera-viewfinder corners.
+
 ## [1.2.0] - 2026-10-31
 
 ### Changed
