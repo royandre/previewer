@@ -21,7 +21,7 @@ export default [
   },
   {
     // Functions passed to page.evaluate / worker.evaluate run in the browser.
-    files: ['test/e2e/**/*.js'],
+    files: ['test/e2e/**/*.js', 'scripts/docs-images.js'],
     languageOptions: { globals: { ...globals.browser, ...globals.webextensions } },
   },
 ];

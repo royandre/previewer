@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Halo Store</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { font: 15px/1.45 Inter, system-ui, -apple-system, sans-serif; color: #1f1f1f; background: #fff; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+
+  header { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 28px; height: 56px; padding: 0 20px; background: rgba(255,255,255,.92); backdrop-filter: blur(12px); border-bottom: 1px solid #eef0f2; }
+  .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; letter-spacing: -.02em; }
+  .logo i { width: 20px; height: 20px; border-radius: 50%; background: conic-gradient(from 200deg, #4285f4, #34a853, #fbbc04, #ea4335, #4285f4); -webkit-mask: radial-gradient(circle, transparent 5px, #000 5.5px); mask: radial-gradient(circle, transparent 5px, #000 5.5px); }
+  nav { display: none; gap: 26px; font-size: 14px; color: #444; }
+  .tools { margin-left: auto; display: flex; gap: 18px; }
+  .tools svg { width: 20px; height: 20px; fill: none; stroke: #333; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; display: block; }
+
+  .promo { margin: 0; padding: 9px 20px; font-size: 12.5px; text-align: center; color: #174ea6; background: #e8f0fe; }
+
+  .hero { margin: 14px; padding: 30px 22px 0; border-radius: 28px; background: linear-gradient(165deg, #eef3fd 0%, #f7f1fb 55%, #fdf3ec 100%); text-align: center; overflow: hidden; }
+  .eyebrow { margin: 0 0 6px; font-size: 13px; font-weight: 600; color: #1a73e8; letter-spacing: .01em; }
+  h1 { margin: 0; font-size: 34px; line-height: 1.08; font-weight: 700; letter-spacing: -.035em; }
+  .lede { margin: 10px auto 0; max-width: 30ch; text-wrap: balance; font-size: 15px; color: #4a4a4a; }
+  .price { margin: 8px 0 0; font-size: 14px; color: #5f6368; }
+  .ctas { display: flex; justify-content: center; gap: 10px; margin-top: 18px; }
+  .btn { display: inline-flex; align-items: center; height: 40px; padding: 0 20px; border-radius: 999px; font-size: 14px; font-weight: 600; }
+  .btn.primary { background: #1a73e8; color: #fff; }
+  .btn.ghost { color: #1a73e8; box-shadow: inset 0 0 0 1.5px #c6d8f7; }
+  .hero svg { display: block; width: 100%; max-width: 360px; margin: 18px auto 0; }
+
+  h2 { margin: 26px 20px 12px; font-size: 20px; letter-spacing: -.02em; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 14px 30px; }
+  .card { padding: 14px 14px 16px; border-radius: 22px; }
+  .card svg { display: block; width: 100%; height: auto; }
+  .card b { display: block; margin-top: 10px; font-size: 14px; letter-spacing: -.01em; }
+  .card small { color: #5f6368; font-size: 12.5px; }
+  .c1 { background: #f1f3f4; } .c2 { background: #fef7e0; } .c3 { background: #e6f4ea; } .c4 { background: #fce8e6; }
+
+  @media (min-width: 700px) {
+    header { padding: 0 32px; }
+    nav { display: flex; }
+    .tools { margin-left: auto; }
+    .hero { display: grid; grid-template-columns: 1fr 1.1fr; align-items: center; gap: 12px; margin: 18px 32px; padding: 34px 40px; text-align: left; }
+    .lede { margin-left: 0; max-width: 34ch; }
+    .ctas { justify-content: flex-start; }
+    h1 { font-size: 46px; }
+    .hero svg { margin: 0; max-width: 460px; justify-self: center; }
+    h2 { margin: 30px 32px 14px; }
+    .grid { grid-template-columns: repeat(4, 1fr); padding: 0 32px 40px; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="#"><i></i>Halo</a>
+    <nav><a>Phones</a><a>Earbuds</a><a>Watches</a><a>Home</a><a>Accessories</a></nav>
+    <div class="tools">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M5 7h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/></svg>
+    </div>
+  </header>
+  <p class="promo">Free delivery and 60-day returns on every order</p>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">New</p>
+      <h1>Halo Buds Pro</h1>
+      <p class="lede">Quiet when you want it, clear when you don't. 30 hours with the case.</p>
+      <p class="price">From $199</p>
+      <div class="ctas"><a class="btn primary" href="#">Buy</a><a class="btn ghost" href="#">Learn more</a></div>
+    </div>
+    <!-- Earbuds and their case -->
+    <svg viewBox="0 0 360 240" aria-hidden="true">
+      <defs>
+        <linearGradient id="case" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e7e9ee"/></linearGradient>
+        <linearGradient id="bud" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfe3ea"/></linearGradient>
+        <radialGradient id="tip" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#7aa7f5"/><stop offset="1" stop-color="#3b6fd6"/></radialGradient>
+        <filter id="soft" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#5b6b8c" flood-opacity=".22"/></filter>
+      </defs>
+      <ellipse cx="180" cy="222" rx="130" ry="10" fill="#d9dce6" opacity=".6"/>
+      <g filter="url(#soft)">
+        <rect x="88" y="96" width="184" height="118" rx="56" fill="url(#case)"/>
+        <path d="M92 138h176" stroke="#d3d7df" stroke-width="2"/>
+        <circle cx="180" cy="174" r="4" fill="#9fb8ea"/>
+      </g>
+      <g filter="url(#soft)">
+        <g transform="rotate(-18 112 70)">
+          <rect x="98" y="64" width="26" height="70" rx="13" fill="url(#bud)"/>
+          <circle cx="111" cy="58" r="28" fill="url(#bud)"/>
+          <circle cx="111" cy="58" r="13" fill="url(#tip)"/>
+        </g>
+        <g transform="rotate(18 248 70)">
+          <rect x="236" y="64" width="26" height="70" rx="13" fill="url(#bud)"/>
+          <circle cx="249" cy="58" r="28" fill="url(#bud)"/>
+          <circle cx="249" cy="58" r="13" fill="url(#tip)"/>
+        </g>
+      </g>
+    </svg>
+  </section>
+
+  <h2>Shop by category</h2>
+  <div class="grid">
+    <a class="card c1">
+      <svg viewBox="0 0 160 120"><rect x="56" y="10" width="48" height="98" rx="10" fill="#202124"/><rect x="59" y="13" width="42" height="92" rx="8" fill="#3c4043"/><rect x="64" y="22" width="32" height="8" rx="4" fill="#5f6368"/><circle cx="72" cy="26" r="2.5" fill="#8ab4f8"/></svg>
+      <b>Halo Phone 3</b><small>From $799</small>
+    </a>
+    <a class="card c2">
+      <svg viewBox="0 0 160 120"><rect x="50" y="6" width="22" height="108" rx="8" fill="#f4c76a"/><rect x="88" y="6" width="22" height="108" rx="8" fill="#f4c76a"/><rect x="44" y="28" width="72" height="64" rx="22" fill="#3c4043"/><circle cx="80" cy="60" r="22" fill="#202124"/><path d="M80 46v14l9 6" stroke="#fde293" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+      <b>Halo Watch 2</b><small>From $299</small>
+    </a>
+    <a class="card c3">
+      <svg viewBox="0 0 160 120"><ellipse cx="80" cy="104" rx="38" ry="8" fill="#b7dfc3"/><rect x="46" y="18" width="68" height="88" rx="30" fill="#5c8d6c"/><circle cx="80" cy="50" r="5" fill="#cfe8d6"/><circle cx="66" cy="66" r="3" fill="#7fae8e"/><circle cx="80" cy="70" r="3" fill="#7fae8e"/><circle cx="94" cy="66" r="3" fill="#7fae8e"/><circle cx="73" cy="82" r="3" fill="#7fae8e"/><circle cx="87" cy="82" r="3" fill="#7fae8e"/></svg>
+      <b>Halo Speaker</b><small>From $99</small>
+    </a>
+    <a class="card c4">
+      <svg viewBox="0 0 160 120"><path d="M38 70a42 42 0 0 1 84 0" stroke="#e8a59d" stroke-width="12" fill="none" stroke-linecap="round"/><rect x="26" y="62" width="28" height="44" rx="14" fill="#c5675c"/><rect x="106" y="62" width="28" height="44" rx="14" fill="#c5675c"/></svg>
+      <b>Halo Headphones</b><small>From $249</small>
+    </a>
+  </div>
+</body>
+</html>
