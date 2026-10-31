@@ -5,6 +5,8 @@ All notable changes to Previewer are listed here. The format follows
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-10-31
+
 ### Changed
 
 - New icon: a phone with a gradient screen inside camera-viewfinder corners.
@@ -34,7 +36,8 @@ All notable changes to Previewer are listed here. The format follows
 - Settings for status bar, frame in screenshot and shadow in screenshot.
 - English and Norwegian (bokmål) interface.
 
-[Unreleased]: https://github.com/royandre/previewer/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/royandre/previewer/compare/v1.2.1...HEAD
+[1.2.1]: https://github.com/royandre/previewer/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/royandre/previewer/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/royandre/previewer/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/royandre/previewer/releases/tag/v1.0.0
