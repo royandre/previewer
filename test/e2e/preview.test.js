@@ -111,6 +111,18 @@ async function waitForPreviewFrame(page) {
   throw new Error('preview iframe did not appear');
 }
 
+// The overlay lives in a closed shadow root, which only extension code can open.
+async function toolbarKeys(page) {
+  return worker.evaluate(async (url) => {
+    const [tab] = await chrome.tabs.query({ url });
+    const [{ result }] = await chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      func: () => [...chrome.dom.openOrClosedShadowRoot(document.querySelector('previewer-root')).querySelectorAll('.bar kbd')].map((k) => k.textContent),
+    });
+    return result;
+  }, page.url());
+}
+
 async function shoot(page, name) {
   if (shotsDir) await page.screenshot({ path: join(shotsDir, `${name}.png`) });
 }
@@ -123,6 +135,10 @@ test('shows the page at the phone width with the phone user agent', async () => 
   assert.match(await frame.evaluate(() => getComputedStyle(document.querySelector('.hero')).cursor), /^url\("data:image\/svg\+xml/, 'touch pointer');
   await page.waitForTimeout(300);
   await shoot(page, 'iphone-18-pro');
+
+  // Each toolbar button shows its shortcut.
+  const mod = process.platform === 'darwin' ? '⌘' : 'Ctrl+';
+  assert.deepEqual(await toolbarKeys(page), [...['1', '2', '3', '4', 'S', 'C'].map((k) => mod + k), 'Esc']);
 
   // ⌘2 / Ctrl+2 switches device without reloading the page.
   await frame.evaluate(() => (window.__marker = 1));

@@ -379,9 +379,10 @@ iframe {
 
 .toast[hidden] { display: none; }
 
-/* The toolbar is about 940px wide with the shortcut labels; below that they
-   would wrap it onto two rows, and the tooltips still name the shortcuts. */
-@media (max-width: 1000px) {
+/* With the shortcut labels the toolbar is about 940px wide on a Mac and 1100px
+   with Ctrl+ labels; below that they would wrap it onto two rows. The tooltips
+   still name the shortcuts. */
+@media (max-width: 1140px) {
   .bar kbd { display: none; }
   .icon.keyed { width: 40px; padding: 0; }
 }
