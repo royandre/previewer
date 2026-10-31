@@ -26,6 +26,15 @@ test('every shape stays inside the frame', () => {
   }
 });
 
+test('the landscape iPad has its camera centred in the top bezel', () => {
+  const ipad = devices.find((d) => d.id === 'ipad-pro-11');
+  const g = geometry(ipad);
+  assert.ok(ipad.viewport.width > ipad.viewport.height, 'landscape');
+  const camera = frameShapes(ipad).find((s) => s.type === 'circle');
+  assert.equal(camera.cx, BUTTON_DEPTH + g.bodyWidth / 2);
+  assert.equal(camera.cy, ipad.frame.bezel.top / 2);
+});
+
 test('the shadow pass can use buttons + body as the silhouette', () => {
   // overlay.js draws the first buttons.length + 1 shapes with a shadow.
   for (const d of devices) {

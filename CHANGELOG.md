@@ -5,6 +5,12 @@ All notable changes to Previewer are listed here. The format follows
 
 ## [Unreleased]
 
+### Changed
+
+- The toolbar shows each button's shortcut: ⌘1–⌘4 on the devices, ⌘S on Screenshot, ⌘C on copy and Esc on close.
+- iPhone SE is black (Midnight) instead of white.
+- iPad Pro 11″ is shown in landscape, 1210 × 834.
+
 ## [1.1.0] - 2026-10-30
 
 ### Added

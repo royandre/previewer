@@ -139,7 +139,7 @@ test('shows the page at the phone width with the phone user agent', async () => 
 
   await page.keyboard.press('ControlOrMeta+4');
   await page.waitForTimeout(300);
-  assert.equal(await frame.evaluate(() => innerWidth), 834);
+  assert.equal(await frame.evaluate(() => innerWidth), 1210);
   await shoot(page, 'ipad-pro-11');
 
   // Back to the default for the next tests.
@@ -181,7 +181,7 @@ test('saves a transparent PNG with ⌘S / Ctrl+S', async () => {
   assert.equal(pixels.center, 255, 'screen is opaque');
   assert.ok(Math.abs(pixels.width / pixels.height - 432 / 898) < 0.01, 'PNG has the frame proportions');
 
-  // A second screenshot of the tallest device must not include the "Saved" toast.
+  // A second screenshot, of the iPad, must not include the "Saved" toast.
   await page.keyboard.press('ControlOrMeta+4');
   await page.waitForTimeout(300);
   const [second] = await Promise.all([page.waitForEvent('download'), page.keyboard.press('ControlOrMeta+s')]);
@@ -191,7 +191,7 @@ test('saves a transparent PNG with ⌘S / Ctrl+S', async () => {
     const ctx = canvas.getContext('2d');
     ctx.drawImage(bitmap, 0, 0);
     // Sample a row just above the screen's bottom edge, away from the home indicator.
-    const y = Math.round(bitmap.height * (1 - 30 / 1254));
+    const y = Math.round(bitmap.height * (1 - 30 / 878));
     return [0.3, 0.7].map((fx) => [...ctx.getImageData(Math.round(bitmap.width * fx), y, 1, 1).data].slice(0, 3));
   }, readFileSync(await second.path()).toString('base64'));
   for (const rgb of bottom) assert.deepEqual(rgb, [251, 247, 242], 'page background, not the toast');

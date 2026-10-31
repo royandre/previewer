@@ -147,6 +147,29 @@ input:focus-visible {
 .icon:hover,
 .icon[aria-expanded="true"] { background: var(--bar-line); }
 
+/* Icon buttons that also show their shortcut */
+.icon.keyed {
+  width: auto;
+  padding: 0 10px 0 11px;
+  display: inline-flex;
+  gap: 7px;
+}
+
+/* Shortcut labels on the toolbar buttons */
+.bar kbd {
+  padding: 3px 5px;
+  background: var(--bar-line);
+  color: var(--bar-muted);
+}
+
+.seg kbd { margin-left: 7px; }
+.seg button[aria-checked="true"] kbd { color: var(--bar-fg); }
+
+.primary kbd {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--accent-fg);
+}
+
 svg.i {
   width: 18px;
   height: 18px;
@@ -355,6 +378,13 @@ iframe {
 }
 
 .toast[hidden] { display: none; }
+
+/* The toolbar is about 940px wide with the shortcut labels; below that they
+   would wrap it onto two rows, and the tooltips still name the shortcuts. */
+@media (max-width: 1000px) {
+  .bar kbd { display: none; }
+  .icon.keyed { width: 40px; padding: 0; }
+}
 
 @media (max-width: 720px) {
   .seg button { padding: 0 9px; font-size: 12px; }

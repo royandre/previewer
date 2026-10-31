@@ -128,14 +128,20 @@
     const { el } = ui;
 
     el.seg.innerHTML = devices
-      .map((d, i) => `<button type="button" role="radio" data-id="${d.id}" title="${d.name} (${keyLabel(String(i + 1))})">${d.name}</button>`)
+      .map((d, i) => `<button type="button" role="radio" data-id="${d.id}" title="${d.name} (${keyLabel(String(i + 1))})" aria-keyshortcuts="${ariaKey(String(i + 1))}">${d.name}${keyHint(keyLabel(String(i + 1)))}</button>`)
       .join('');
     const shortcuts = { save: 'S', copy: 'C' };
     for (const button of root.querySelectorAll('[data-action]')) {
       const action = button.dataset.action; // also the i18n key
       const shortcut = shortcuts[action];
-      button.title = shortcut ? `${t(action)} (${keyLabel(shortcut)})` : t(action);
+      const label = action === 'close' ? 'Esc' : shortcut && keyLabel(shortcut);
+      button.title = label ? `${t(action)} (${label})` : t(action);
       if (button.classList.contains('icon')) button.setAttribute('aria-label', t(action));
+      if (label) {
+        button.setAttribute('aria-keyshortcuts', action === 'close' ? 'Escape' : ariaKey(shortcut));
+        button.insertAdjacentHTML('beforeend', keyHint(label));
+        button.classList.add('keyed');
+      }
     }
     for (const input of root.querySelectorAll('.switch')) input.checked = ui.settings[input.name];
 
@@ -176,6 +182,16 @@
 
   function keyLabel(key) {
     return isMac ? `⌘${key}` : `Ctrl+${key}`;
+  }
+
+  function ariaKey(key) {
+    return `${isMac ? 'Meta' : 'Control'}+${key}`;
+  }
+
+  // The shortcut printed on a toolbar button. Screen readers get it from
+  // aria-keyshortcuts instead, so the button's name stays just its name.
+  function keyHint(label) {
+    return `<kbd aria-hidden="true">${label}</kbd>`;
   }
 
   function shortcutHelp() {
