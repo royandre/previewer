@@ -67,22 +67,6 @@
     "message": "Soft shadow around the frame",
     "description": "Setting hint"
   },
-  "keysDevices": {
-    "message": "switch device",
-    "description": "Shortcut help"
-  },
-  "keysSave": {
-    "message": "save",
-    "description": "Shortcut help"
-  },
-  "keysCopy": {
-    "message": "copy",
-    "description": "Shortcut help"
-  },
-  "keysClose": {
-    "message": "close",
-    "description": "Shortcut help"
-  },
   "saved": {
     "message": "Saved $FILE$ to Downloads",
     "description": "Toast after saving",

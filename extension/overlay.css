@@ -157,7 +157,9 @@ input:focus-visible {
 
 /* Shortcut labels on the toolbar buttons */
 .bar kbd {
+  font: 500 11px/1 var(--mono);
   padding: 3px 5px;
+  border-radius: 4px;
   background: var(--bar-line);
   color: var(--bar-muted);
 }
@@ -213,27 +215,6 @@ svg.i {
   margin-top: 2px;
   color: var(--bar-muted);
   font-size: 12px;
-}
-
-/* Shortcut line under the phone, on the dark backdrop */
-.shortcuts {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 4px 16px;
-  max-width: 100%;
-  color: var(--caption);
-  font-size: 12px;
-}
-
-.shortcuts span { white-space: nowrap; }
-
-kbd {
-  font: 500 11px/1 var(--mono);
-  padding: 2px 5px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.16);
-  color: #fff;
 }
 
 .switch {

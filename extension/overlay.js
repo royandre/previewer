@@ -89,7 +89,6 @@
               </div>
             </div>
             <div class="caption"></div>
-            <div class="shortcuts">${shortcutHelp()}</div>
           </div>
         </div>
         <div class="toast" role="status" hidden></div>
@@ -194,16 +193,6 @@
     return `<kbd aria-hidden="true">${label}</kbd>`;
   }
 
-  function shortcutHelp() {
-    const k = (key) => `<kbd>${keyLabel(key)}</kbd>`;
-    return [
-      `<span>${k('1')}–${k('4')} ${t('keysDevices')}</span>`,
-      `<span>${k('S')} ${t('keysSave')}</span>`,
-      `<span>${k('C')} ${t('keysCopy')}</span>`,
-      `<span><kbd>Esc</kbd> ${t('keysClose')}</span>`,
-    ].join('');
-  }
-
   // --- Rendering ---------------------------------------------------------------
 
   function renderDevice() {
@@ -255,7 +244,7 @@
     if (!ui) return;
     const g = geometry(ui.device);
     const stage = ui.el.stage.getBoundingClientRect();
-    const captionSpace = 64; // device name and the shortcut line under the phone
+    const captionSpace = 24; // device name under the phone
     const scale = Math.min(1, (stage.height - 32 - captionSpace) / g.height, (stage.width - 32) / g.width);
     ui.scale = Math.max(0.1, scale);
     ui.el.phone.style.transform = `scale(${ui.scale})`;
