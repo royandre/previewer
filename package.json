@@ -14,6 +14,7 @@
     "test:e2e": "node --test test/e2e/*.test.js",
     "check": "npm run lint && npm test",
     "icons": "node scripts/icons.js",
+    "docs-images": "node scripts/docs-images.js",
     "package": "node scripts/package.js",
     "bump": "node scripts/bump.js"
   },

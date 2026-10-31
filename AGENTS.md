@@ -22,8 +22,8 @@ extension/            The extension. Everything here ships.
   overlay.css         Overlay styles, passed in as text and adopted as a constructable stylesheet.
   _locales/           UI strings. en is the default; every locale has the same keys.
   icons/              Generated from assets/icon.svg with `npm run icons`.
-assets/               Source artwork.
-scripts/              package.js (release zip), icons.js, bump.js, release-notes.js.
+assets/               Source artwork, and demo-store.html for the README images.
+scripts/              package.js (release zip), icons.js, docs-images.js, bump.js, release-notes.js.
 test/                 Unit tests (node:test).
 test/e2e/             End-to-end test in Chromium via Playwright.
 .github/              CI, release workflow, issue and PR templates.
@@ -50,6 +50,7 @@ npm run check           # lint + unit tests — run before every commit
 npm run test:e2e        # loads the extension in Chromium and drives it
 HEADED=1 npm run test:e2e         # watch it run
 npm run package         # dist/previewer.zip
+npm run docs-images     # README images in docs/, from assets/demo-store.html
 ```
 
 ## Rules
