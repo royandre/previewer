@@ -5,6 +5,8 @@ All notable changes to Previewer are listed here. The format follows
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-10-31
+
 ### Changed
 
 - The toolbar shows each button's shortcut: ⌘1–⌘4 on the devices, ⌘S on Screenshot, ⌘C on copy and Esc on close. The shortcut line under the phone is gone, so the phone gets a little more room.
@@ -28,6 +30,7 @@ All notable changes to Previewer are listed here. The format follows
 - Settings for status bar, frame in screenshot and shadow in screenshot.
 - English and Norwegian (bokmål) interface.
 
-[Unreleased]: https://github.com/royandre/previewer/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/royandre/previewer/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/royandre/previewer/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/royandre/previewer/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/royandre/previewer/releases/tag/v1.0.0
