@@ -63,7 +63,7 @@ selected. Change the open shortcut at `chrome://extensions/shortcuts`.
 | iPhone 18 Pro | 402 × 874         | The current iPhone.                                                 |
 | iPhone SE     | 375 × 667         | The smallest and shortest screen in common use: shows what falls below the fold. |
 | Pixel 11      | 412 × 924         | The current Pixel, and the typical Android width.                   |
-| iPad Pro 11″  | 834 × 1210        | Tablet layout. Like Safari on iPad, it asks for the desktop site.    |
+| iPad Pro 11″  | 1210 × 834        | Tablet layout, in landscape. Like Safari on iPad, it asks for the desktop site. |
 
 Switching device keeps your place on the page. The page reloads only when you click the reload button.
 

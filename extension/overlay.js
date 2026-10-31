@@ -89,7 +89,6 @@
               </div>
             </div>
             <div class="caption"></div>
-            <div class="shortcuts">${shortcutHelp()}</div>
           </div>
         </div>
         <div class="toast" role="status" hidden></div>
@@ -128,14 +127,20 @@
     const { el } = ui;
 
     el.seg.innerHTML = devices
-      .map((d, i) => `<button type="button" role="radio" data-id="${d.id}" title="${d.name} (${keyLabel(String(i + 1))})">${d.name}</button>`)
+      .map((d, i) => `<button type="button" role="radio" data-id="${d.id}" title="${d.name} (${keyLabel(String(i + 1))})" aria-keyshortcuts="${ariaKey(String(i + 1))}">${d.name}${keyHint(keyLabel(String(i + 1)))}</button>`)
       .join('');
     const shortcuts = { save: 'S', copy: 'C' };
     for (const button of root.querySelectorAll('[data-action]')) {
       const action = button.dataset.action; // also the i18n key
       const shortcut = shortcuts[action];
-      button.title = shortcut ? `${t(action)} (${keyLabel(shortcut)})` : t(action);
+      const label = action === 'close' ? 'Esc' : shortcut && keyLabel(shortcut);
+      button.title = label ? `${t(action)} (${label})` : t(action);
       if (button.classList.contains('icon')) button.setAttribute('aria-label', t(action));
+      if (label) {
+        button.setAttribute('aria-keyshortcuts', action === 'close' ? 'Escape' : ariaKey(shortcut));
+        button.insertAdjacentHTML('beforeend', keyHint(label));
+        button.classList.add('keyed');
+      }
     }
     for (const input of root.querySelectorAll('.switch')) input.checked = ui.settings[input.name];
 
@@ -178,14 +183,14 @@
     return isMac ? `⌘${key}` : `Ctrl+${key}`;
   }
 
-  function shortcutHelp() {
-    const k = (key) => `<kbd>${keyLabel(key)}</kbd>`;
-    return [
-      `<span>${k('1')}–${k('4')} ${t('keysDevices')}</span>`,
-      `<span>${k('S')} ${t('keysSave')}</span>`,
-      `<span>${k('C')} ${t('keysCopy')}</span>`,
-      `<span><kbd>Esc</kbd> ${t('keysClose')}</span>`,
-    ].join('');
+  function ariaKey(key) {
+    return `${isMac ? 'Meta' : 'Control'}+${key}`;
+  }
+
+  // The shortcut printed on a toolbar button. Screen readers get it from
+  // aria-keyshortcuts instead, so the button's name stays just its name.
+  function keyHint(label) {
+    return `<kbd aria-hidden="true">${label}</kbd>`;
   }
 
   // --- Rendering ---------------------------------------------------------------
@@ -239,7 +244,7 @@
     if (!ui) return;
     const g = geometry(ui.device);
     const stage = ui.el.stage.getBoundingClientRect();
-    const captionSpace = 64; // device name and the shortcut line under the phone
+    const captionSpace = 24; // device name under the phone
     const scale = Math.min(1, (stage.height - 32 - captionSpace) / g.height, (stage.width - 32) / g.width);
     ui.scale = Math.max(0.1, scale);
     ui.el.phone.style.transform = `scale(${ui.scale})`;

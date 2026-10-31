@@ -58,9 +58,12 @@
       shapes.push(rect(cx - e.width / 2, cy - e.height / 2, e.width, e.height, e.height / 2, e.color));
       shapes.push({ type: 'circle', cx: cx - e.width / 2 - 26, cy, r: 5, fill: '#2b2f3a' });
     }
-    if (f.camera?.edge === 'right') {
-      shapes.push({ type: 'circle', cx: x + g.bodyWidth - f.bezel.right / 2, cy: g.bodyHeight / 2, r: 3.5, fill: '#2b2f3a' });
-    }
+    // Tablets have the front camera on one edge, centred in the bezel.
+    const camera = {
+      top: [cx, f.bezel.top / 2],
+      right: [x + g.bodyWidth - f.bezel.right / 2, g.bodyHeight / 2],
+    }[f.camera?.edge];
+    if (camera) shapes.push({ type: 'circle', cx: camera[0], cy: camera[1], r: 3.5, fill: '#2b2f3a' });
     if (f.homeButton) {
       shapes.push({
         type: 'circle',

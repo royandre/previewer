@@ -91,21 +91,21 @@
         "bodyRadius": 64,
         "screenRadius": 0,
         "rim": 3,
-        "color": "#e6dccf",
-        "edge": "#c4b8aa",
-        "front": "#f6f3ee",
+        "color": "#2c2f35",
+        "edge": "#1a1c20",
+        "front": "#0b0b0c",
         "statusBar": {
           "height": 20,
           "layout": "classic"
         },
         "homeButton": {
           "radius": 33,
-          "ring": "#d3cdc4"
+          "ring": "#3a3d44"
         },
         "earpiece": {
           "width": 52,
           "height": 6,
-          "color": "#d9d4cc"
+          "color": "#24262b"
         },
         "homeIndicator": false,
         "buttons": [
@@ -187,8 +187,8 @@
       "id": "ipad-pro-11",
       "name": "iPad Pro 11″",
       "viewport": {
-        "width": 834,
-        "height": 1210
+        "width": 1210,
+        "height": 834
       },
       "pixelRatio": 2,
       "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15",
@@ -215,21 +215,10 @@
           "layout": "tablet"
         },
         "camera": {
-          "edge": "right"
+          "edge": "top"
         },
         "homeIndicator": true,
-        "buttons": [
-          {
-            "side": "right",
-            "top": 70,
-            "length": 54
-          },
-          {
-            "side": "right",
-            "top": 136,
-            "length": 54
-          }
-        ]
+        "buttons": []
       }
     }
   ]

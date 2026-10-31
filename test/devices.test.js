@@ -37,6 +37,7 @@ for (const d of devices) {
     assert.ok(LAYOUTS.includes(f.statusBar.layout), `statusBar.layout is one of ${LAYOUTS}`);
     assert.ok(f.statusBar.height < d.viewport.height);
     assert.ok(f.screenRadius <= f.bodyRadius);
+    if (f.camera) assert.ok(['top', 'right'].includes(f.camera.edge), 'camera.edge is top or right');
 
     const g = geometry(d);
     for (const b of f.buttons) {

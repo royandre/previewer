@@ -147,6 +147,31 @@ input:focus-visible {
 .icon:hover,
 .icon[aria-expanded="true"] { background: var(--bar-line); }
 
+/* Icon buttons that also show their shortcut */
+.icon.keyed {
+  width: auto;
+  padding: 0 10px 0 11px;
+  display: inline-flex;
+  gap: 7px;
+}
+
+/* Shortcut labels on the toolbar buttons */
+.bar kbd {
+  font: 500 11px/1 var(--mono);
+  padding: 3px 5px;
+  border-radius: 4px;
+  background: var(--bar-line);
+  color: var(--bar-muted);
+}
+
+.seg kbd { margin-left: 7px; }
+.seg button[aria-checked="true"] kbd { color: var(--bar-fg); }
+
+.primary kbd {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--accent-fg);
+}
+
 svg.i {
   width: 18px;
   height: 18px;
@@ -190,27 +215,6 @@ svg.i {
   margin-top: 2px;
   color: var(--bar-muted);
   font-size: 12px;
-}
-
-/* Shortcut line under the phone, on the dark backdrop */
-.shortcuts {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 4px 16px;
-  max-width: 100%;
-  color: var(--caption);
-  font-size: 12px;
-}
-
-.shortcuts span { white-space: nowrap; }
-
-kbd {
-  font: 500 11px/1 var(--mono);
-  padding: 2px 5px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.16);
-  color: #fff;
 }
 
 .switch {
@@ -355,6 +359,14 @@ iframe {
 }
 
 .toast[hidden] { display: none; }
+
+/* With the shortcut labels the toolbar is about 940px wide on a Mac and 1100px
+   with Ctrl+ labels; below that they would wrap it onto two rows. The tooltips
+   still name the shortcuts. */
+@media (max-width: 1140px) {
+  .bar kbd { display: none; }
+  .icon.keyed { width: 40px; padding: 0; }
+}
 
 @media (max-width: 720px) {
   .seg button { padding: 0 9px; font-size: 12px; }

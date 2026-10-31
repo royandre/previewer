@@ -51,7 +51,7 @@ Everything about a device lives in [`extension/devices.json`](extension/devices.
 | ------------- | ------------------------------------------------------------------------------- |
 | `id`          | Lower-case slug, used in screenshot file names.                                 |
 | `name`        | What the toolbar shows.                                                         |
-| `viewport`    | CSS pixel size of the full screen in portrait (`screen.width × screen.height`). |
+| `viewport`    | CSS pixel size of the full screen in the orientation shown (`screen.width × screen.height`). |
 | `pixelRatio`  | The device's `devicePixelRatio`. Informational.                                 |
 | `userAgent`   | The User-Agent the device's default browser sends.                              |
 | `headers`     | Extra request headers; `null` removes the header (Safari sends no client hints). |

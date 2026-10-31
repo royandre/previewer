@@ -50,18 +50,6 @@
   "shadowInScreenshotHint": {
     "message": "Myk skygge rundt rammen"
   },
-  "keysDevices": {
-    "message": "bytt enhet"
-  },
-  "keysSave": {
-    "message": "lagre"
-  },
-  "keysCopy": {
-    "message": "kopier"
-  },
-  "keysClose": {
-    "message": "lukk"
-  },
   "saved": {
     "message": "Lagret $FILE$ i Nedlastinger",
     "placeholders": {

@@ -111,6 +111,18 @@ async function waitForPreviewFrame(page) {
   throw new Error('preview iframe did not appear');
 }
 
+// The overlay lives in a closed shadow root, which only extension code can open.
+async function toolbarKeys(page) {
+  return worker.evaluate(async (url) => {
+    const [tab] = await chrome.tabs.query({ url });
+    const [{ result }] = await chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      func: () => [...chrome.dom.openOrClosedShadowRoot(document.querySelector('previewer-root')).querySelectorAll('.bar kbd')].map((k) => k.textContent),
+    });
+    return result;
+  }, page.url());
+}
+
 async function shoot(page, name) {
   if (shotsDir) await page.screenshot({ path: join(shotsDir, `${name}.png`) });
 }
@@ -123,6 +135,10 @@ test('shows the page at the phone width with the phone user agent', async () => 
   assert.match(await frame.evaluate(() => getComputedStyle(document.querySelector('.hero')).cursor), /^url\("data:image\/svg\+xml/, 'touch pointer');
   await page.waitForTimeout(300);
   await shoot(page, 'iphone-18-pro');
+
+  // Each toolbar button shows its shortcut.
+  const mod = process.platform === 'darwin' ? '⌘' : 'Ctrl+';
+  assert.deepEqual(await toolbarKeys(page), [...['1', '2', '3', '4', 'S', 'C'].map((k) => mod + k), 'Esc']);
 
   // ⌘2 / Ctrl+2 switches device without reloading the page.
   await frame.evaluate(() => (window.__marker = 1));
@@ -139,7 +155,7 @@ test('shows the page at the phone width with the phone user agent', async () => 
 
   await page.keyboard.press('ControlOrMeta+4');
   await page.waitForTimeout(300);
-  assert.equal(await frame.evaluate(() => innerWidth), 834);
+  assert.equal(await frame.evaluate(() => innerWidth), 1210);
   await shoot(page, 'ipad-pro-11');
 
   // Back to the default for the next tests.
@@ -181,7 +197,7 @@ test('saves a transparent PNG with ⌘S / Ctrl+S', async () => {
   assert.equal(pixels.center, 255, 'screen is opaque');
   assert.ok(Math.abs(pixels.width / pixels.height - 432 / 898) < 0.01, 'PNG has the frame proportions');
 
-  // A second screenshot of the tallest device must not include the "Saved" toast.
+  // A second screenshot, of the iPad, must not include the "Saved" toast.
   await page.keyboard.press('ControlOrMeta+4');
   await page.waitForTimeout(300);
   const [second] = await Promise.all([page.waitForEvent('download'), page.keyboard.press('ControlOrMeta+s')]);
@@ -191,7 +207,7 @@ test('saves a transparent PNG with ⌘S / Ctrl+S', async () => {
     const ctx = canvas.getContext('2d');
     ctx.drawImage(bitmap, 0, 0);
     // Sample a row just above the screen's bottom edge, away from the home indicator.
-    const y = Math.round(bitmap.height * (1 - 30 / 1254));
+    const y = Math.round(bitmap.height * (1 - 30 / 878));
     return [0.3, 0.7].map((fx) => [...ctx.getImageData(Math.round(bitmap.width * fx), y, 1, 1).data].slice(0, 3));
   }, readFileSync(await second.path()).toString('base64'));
   for (const rgb of bottom) assert.deepEqual(rgb, [251, 247, 242], 'page background, not the toast');
